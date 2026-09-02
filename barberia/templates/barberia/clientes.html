@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registrar clientes</title>
+</head>
+<body>
+    {% extends 'barberia/base.html' %}
+
+    {% block title %}
+    clientes - barberia nextcode
+    {% endblock %}
+
+    {% block content %}
+
+    <h2>registrar cliente</h2>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <label for="nombre">nombre:</label>
+        <input type="text" id="nombre" name="nombre">
+
+        <br><br>
+
+        <label for="correo">correo:</label>
+        <input type="email" id="correo" name="correo">
+
+        <br><br>
+
+        <label for="telefono">telefono:</laber>
+        <input type="text" id="telefono" name="telefono">
+        
+        <br><br>
+
+        <button type="submit">registrar</button>
+
+    </form>
+
+    {% endblock %}
+</body>
+</html>

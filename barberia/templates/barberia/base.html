@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>
+        {% block title %}
+        Barberia NextCode
+        {% endblock %}
+    </title>
+    
+    <link rel="stylesheet" href="{% static 'barberia/css/estilos.css' %}">
+
+</head>
+<body>
+    <header>
+        <h1>barberia nextcode</h1>
+
+        <nav>
+            <a href="{% url 'inicio' %}">vuelve al inicio</a>
+         <br>
+            <a href="{% url 'servicios' %}">ver nuestros servicios</a>    
+        </nav>
+    </header>
+
+    <main>
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+</body>
+</html>
