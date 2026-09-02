@@ -1,22 +1,118 @@
-body{
-    font-family: arial, sans-serif;
-    background-color:#f2f2f2;
-    margin: 0;
+:root {
+  --nav-h: 70px;
+  --max-w: 1200px;
+  --text: #ffffff;
+  --text2: #a0aec0;
+  --sky: #0070f3;
+  --border: rgba(255, 255, 255, 0.1);
+  --silk: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-header{
-    background-color: #222;
-    color: white;
-    padding: 20px;
+/* Base */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
 }
 
-nav a{
-    color: white;
-    text-decoration: none;
-    margin-right: 20px;
+header {
+  background-color: #222222;
+  color: #ffffff;
+  padding: 20px;
 }
 
-main{
-    padding: 30px;
+main {
+  padding: 30px;
 }
 
+/* Navegación */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  padding: 0 max(48px, calc((100vw - var(--max-w)) / 2));
+  border-bottom: 1px solid transparent;
+  transform: translateY(36px);
+  transition: background 0.6s var(--silk), 
+              border-color 0.6s var(--silk), 
+              transform 0.5s var(--silk);
+}
+
+nav > * {
+  position: relative;
+}
+
+nav.scrolled {
+  background: rgba(15, 19, 25, 0.95);
+  backdrop-filter: blur(20px);
+  border-color: var(--border);
+  transform: translateY(0);
+}
+
+/* Logo */
+.nav-logo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-logo-mark {
+  width: 30px;
+  height: 30px;
+  background: var(--sky);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-logo-mark svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+/* Enlaces y CTAs */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-left: auto;
+}
+
+.nav-links a {
+  color: var(--text2);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 6px 14px;
+  border-radius: 6px;
+  transition: color 0.4s var(--silk), background 0.4s var(--silk);
+  letter-spacing: 0.01em;
+}
+
+.nav-links a:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.nav-cta {
+  margin-left: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}

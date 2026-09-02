@@ -1,0 +1,16 @@
+User-agent: AmazonAdBot
+Disallow:
+
+User-agent: *
+Allow: /templates/portfolio-website-templates
+Allow: /templates/one-page-website-templates
+Allow: /templates/business-website-templates
+Allow: /templates/bootstrap-5-website-templates
+Allow: /templates/landing-page-website-templates
+Allow: /templates/dark-theme-website-templates
+Disallow: /templates/
+Disallow: /download/
+Disallow: /external/
+Disallow: /live/
+
+Sitemap: https://templatemo.com/sitemap.xml

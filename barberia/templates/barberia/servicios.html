@@ -1,30 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>servicios - barberia NextCode</title>
-</head>
-<body>
+{% extends 'barberia/base.html' %}
 
-    {% extends 'barberia/base.html' %}
+{% block title %}Servicios - Barbería NextCode{% endblock %}
 
-    {% block title %}
-    servicios - Barberia NextCode
-    {% endblock %}
-
-    {% block content %}
-
-    <h1>nuestros servicios</h1>
-
-    <ul>
-        <li>corte de cabello - $20.000</li>
-        <li>barba - $15.000</li>
-        <li>corte + barba - $30.000</li>
-        <li>corte infantil - $18.000</li>
-    </ul>
-    
-    {% endblock %}
-
-</body>
-</html>
+{% block content %}
+<h1>Nuestros Servicios</h1>
+<ul>
+    <li>Corte de cabello - $20.000</li>
+    <li>Barba - $15.000</li>
+    <li>Corte + Barba - $30.000</li>
+    <li>Corte infantil - $18.000</li>
+</ul>
+{% endblock %}

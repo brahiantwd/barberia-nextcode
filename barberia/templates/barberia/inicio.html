@@ -1,29 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barberia NextCode</title>
-</head>
-<body>
+{% extends 'barberia/base.html' %}
 
-    {% extends 'barberia/base.html' %}
+{% block title %}Inicio - Barbería NextCode{% endblock %}
 
-    {% block title %}
-    Inicio - Barbería NextCode
-    {% endblock %}
+{% block content %}
+<h2>Bienvenidos a Barbería NextCode</h2>
+<p>Tu sistema de gestión de citas.</p>
+<p>En nuestra barbería encontrarás el mejor servicio para cuidar tu estilo.</p>
 
-    {% block content %}
-
-    <h2>bienvenidos a barberia NextCode</h2>
-
-    <p>tu sistema de gestion de citas</p>
-    <p>
-        en nuestra barberia encontraras el mejore servicio para cuidar tu estilo
-    </p>
-
-    <a href="{% url 'clientes' %}">registrate como uno de nuestros clientes</a>
-
-    {% endblock %}
-</body>
-</html>
+<a href="{% url 'clientes' %}">Regístrate como uno de nuestros clientes</a>
+{% endblock %}

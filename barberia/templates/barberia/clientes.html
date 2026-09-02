@@ -1,44 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>registrar clientes</title>
-</head>
-<body>
-    {% extends 'barberia/base.html' %}
+{% extends 'barberia/base.html' %}
 
-    {% block title %}
-    clientes - barberia nextcode
-    {% endblock %}
+{% block title %}Registrar Cliente - Barbería NextCode{% endblock %}
 
-    {% block content %}
+{% block content %}
+<h2>Registrar Cliente</h2>
 
-    <h2>registrar cliente</h2>
+<form method="POST">
+    {% csrf_token %}
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre">
+    <br><br>
 
-    <form method="POST">
+    <label for="correo">Correo:</label>
+    <input type="email" id="correo" name="correo">
+    <br><br>
 
-        {% csrf_token %}
+    <label for="telefono">Teléfono:</label>
+    <input type="text" id="telefono" name="telefono">
+    <br><br>
 
-        <label for="nombre">nombre:</label>
-        <input type="text" id="nombre" name="nombre">
-
-        <br><br>
-
-        <label for="correo">correo:</label>
-        <input type="email" id="correo" name="correo">
-
-        <br><br>
-
-        <label for="telefono">telefono:</laber>
-        <input type="text" id="telefono" name="telefono">
-        
-        <br><br>
-
-        <button type="submit">registrar</button>
-
-    </form>
-
-    {% endblock %}
-</body>
-</html>
+    <button type="submit">Registrar</button>
+</form>
+{% endblock %}

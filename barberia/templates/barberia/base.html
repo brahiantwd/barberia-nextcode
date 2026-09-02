@@ -1,36 +1,31 @@
 {% load static %}
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>
-        {% block title %}
-        Barberia NextCode
-        {% endblock %}
-    </title>
-    
+    <title>{% block title %}Barbería NextCode{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'barberia/css/estilos.css' %}">
-
 </head>
 <body>
     <header>
-        <h1>barberia nextcode</h1>
-
+        <h1>Barbería NextCode</h1>
         <nav>
-            <a href="{% url 'inicio' %}">vuelve al inicio</a>
-         <br>
-            <a href="{% url 'servicios' %}">ver nuestros servicios</a>    
+            <div class="nav-links">
+                <a href="{% url 'inicio' %}">Inicio</a>
+                <a href="{% url 'servicios' %}">Servicios</a>
+                <a href="#">Agendar Cita</a>
+            </div>  
+            <div class="nav-cta">
+                <a href="#" class="btn-ghost">Iniciar sesión</a>
+                <a href="{% url 'clientes' %}" class="btn-primary">Crear Cuenta</a>
+            </div>
         </nav>
     </header>
 
     <main>
-
         {% block content %}
         {% endblock %}
-
     </main>
 </body>
 </html>
