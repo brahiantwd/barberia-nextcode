@@ -1,0 +1,73 @@
+{% extends 'barberia/base.html' %}
+{% load static %}
+
+{% block title %}
+Iniciar Sesión - NexCodeBarber
+{% endblock %}
+
+{% block content %}
+
+<div class="register-bg">
+    <div class="register-overlay">
+        <div class="register-card">
+            
+           
+            <div class="register-logo">
+                <span class="scissors-icon">✂</span>
+                <h2>NextCode</h2>
+            </div>
+            
+            <h3 class="register-title">Bienvenido</h3>
+            <p class="register-subtitle">Inicia sesión para continuar</p>
+            
+           
+            <form method="POST" class="register-form">
+                {% csrf_token %}
+                
+               
+                <div class="input-group">
+                    <span class="input-icon">✉</span>
+                    <input type="email" name="username" placeholder="Correo electrónico" required>
+                </div>
+                
+                
+                <div class="input-group">
+                    <span class="input-icon">🔒</span>
+                    <input type="password" name="password" placeholder="Contraseña" required>
+                </div>
+                
+           
+                <div class="login-extras">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Recordarme</label>
+                    </div>
+                    <a href="#" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                </div>
+                
+               
+                <div class="action-buttons">
+                    <button type="submit" class="btn-login-submit">Iniciar sesión</button>
+                    <a href="{% url 'inicio' %}" class="btn-exit">Salir</a>
+                </div>
+            </form>
+            
+           
+            <div class="social-divider">
+                <span>o continua con</span>
+            </div>
+            
+            
+            <div class="social-buttons">
+                <a href="#" class="btn-social google">
+                    <span class="social-icon">🌐</span> Google
+                </a>
+                <a href="#" class="btn-social facebook">
+                    <span class="social-icon">📘</span> Facebook
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,29 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barberia NextCode</title>
-</head>
-<body>
+{% extends 'barberia/base.html' %}
+{% load static %} <!-- Cargamos static al inicio para poder usar la imagen -->
 
-    {% extends 'barberia/base.html' %}
+{% block title %}
+Inicio - NexCodeBarber
+{% endblock %}
 
-    {% block title %}
-    Inicio - Barbería NextCode
-    {% endblock %}
+{% block content %}
+<!-- Sección Hero Principal -->
+<section class="hero-section">
+    <div class="hero-text-content">
+        <h2 class="hero-title">
+            El mejor estilo <br> para <span class="highlight-text">tu imagen</span>
+        </h2>
+        <p class="hero-description">
+            En NexCodeBarber combinamos experiencia, estilo y pasión para que luzcas tu mejor versión.
+        </p>
+        <a href="#modal-calendario" class="btn-reserve">
+            Reservar cita <span>📅</span>
+        </a>
+    </div>
 
-    {% block content %}
+    <!-- Bloque de la Imagen Dinámica -->
+    <div class="hero-image-content">
+        <!-- Llamamos a tu nueva imagen local y le aplicamos la clase hero-image -->
+        <img src="{% static 'barberia/imagenes/fachada_barberia.jpg' %}" alt="NexCodeBarber Fachada" class="hero-image">
+    </div>
+</section>
 
-    <h2>bienvenidos a barberia NextCode</h2>
-
-    <p>tu sistema de gestion de citas</p>
-    <p>
-        en nuestra barberia encontraras el mejore servicio para cuidar tu estilo
-    </p>
-
-    <a href="{% url 'clientes' %}">registrate como uno de nuestros clientes</a>
-
-    {% endblock %}
-</body>
-</html>
+<!-- VENTANA EMERGENTE (MODAL) DEL CALENDARIO -->
+<div id="modal-calendario" class="modal-overlay">
+    <div class="modal-container">
+        <a href="#" class="modal-close">&times;</a>
+        
+        <h3 class="modal-title">Agenda tu Cita</h3>
+        <p class="modal-subtitle">Selecciona el momento perfecto para tu estilo</p>
+        
+        <form method="POST" class="modal-form">
+            {% csrf_token %}
+            
+            <div class="form-group">
+                <label>Fecha de la cita:</label>
+                <input type="date" required class="form-input">
+            </div>
+            
+            <div class="form-group">
+                <label>Hora disponible:</label>
+                <input type="time" required class="form-input">
+            </div>
+            
+            <div class="form-group">
+                <label>Servicio:</label>
+                <select class="form-input">
+                    <option value="corte">Corte de Cabello Tradicional</option>
+                    <option value="barba">Arreglo de Barba / Toalla Caliente</option>
+                    <option value="combo">Combo NexCode (Corte + Barba)</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn-submit">Confirmar Reserva</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

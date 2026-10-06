@@ -1,44 +1,90 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>registrar clientes</title>
-</head>
-<body>
-    {% extends 'barberia/base.html' %}
+{% extends 'barberia/base.html' %}
+{% load static %}
 
-    {% block title %}
-    clientes - barberia nextcode
-    {% endblock %}
+{% block title %}
+Crea tu cuenta - NexCodeBarber
+{% endblock %}
 
-    {% block content %}
-
-    <h2>registrar cliente</h2>
-
-    <form method="POST">
-
-        {% csrf_token %}
-
-        <label for="nombre">nombre:</label>
-        <input type="text" id="nombre" name="nombre">
-
-        <br><br>
-
-        <label for="correo">correo:</label>
-        <input type="email" id="correo" name="correo">
-
-        <br><br>
-
-        <label for="telefono">telefono:</laber>
-        <input type="text" id="telefono" name="telefono">
-        
-        <br><br>
-
-        <button type="submit">registrar</button>
-
-    </form>
-
-    {% endblock %}
-</body>
-</html>
+{% block content %}
+<!-- Contenedor de la Pantalla de Registro con Fondo de la Fachada -->
+<div class="register-bg">
+    <div class="register-overlay">
+        <div class="register-card">
+            
+            <!-- Logotipo Superior -->
+            <div class="register-logo">
+                <span class="scissors-icon">✂</span>
+                <h2>NexCodeBarber</h2>
+            </div>
+            
+            <h3 class="register-title">Crea tu cuenta</h3>
+            <p class="register-subtitle">Únete a NexCode</p>
+            
+            <!-- Formulario de Registro -->
+            <form method="POST" class="register-form">
+                {% csrf_token %}
+                
+                <!-- Nombre Completo -->
+                <div class="input-group">
+                    <span class="input-icon">👤</span>
+                    <input type="text" name="username" placeholder="Nombre completo" required>
+                </div>
+                
+                <!-- Correo Electrónico -->
+                <div class="input-group">
+                    <span class="input-icon">✉</span>
+                    <input type="email" name="email" placeholder="Correo electrónico" required>
+                </div>
+                
+                <!-- Teléfono -->
+                <div class="input-group">
+                    <span class="input-icon">📞</span>
+                    <input type="tel" name="telefono" placeholder="Teléfono" required>
+                </div>
+                
+                <!-- Contraseña -->
+                <div class="input-group">
+                    <span class="input-icon">🔒</span>
+                    <input type="password" name="password" placeholder="Contraseña" required>
+                </div>
+                
+                <!-- Confirmar Contraseña -->
+                <div class="input-group">
+                    <span class="input-icon">🔒</span>
+                    <input type="password" name="confirm_password" placeholder="Confirmar contraseña" required>
+                </div>
+                
+                <!-- Términos y Condiciones -->
+                <div class="terms-container">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">
+                        Acepto los <a href="#">Términos y Condiciones</a> y la <a href="#">Política de Privacidad</a>
+                    </label>
+                </div>
+                
+                <!-- Botones Principales -->
+                <div class="action-buttons">
+                    <button type="submit" class="btn-login-submit">Iniciar sesión</button>
+                    <a href="{% url 'inicio' %}" class="btn-exit">Salir</a>
+                </div>
+            </form>
+            
+            <!-- Separador Social -->
+            <div class="social-divider">
+                <span>o continua con</span>
+            </div>
+            
+            <!-- Botones de Redes Sociales -->
+            <div class="social-buttons">
+                <a href="#" class="btn-social google">
+                    <span class="social-icon">🌐</span> Google
+                </a>
+                <a href="#" class="btn-social facebook">
+                    <span class="social-icon">📘</span> Facebook
+                </a>
+            </div>
+            
+        </div>
+    </div>
+</div>
+{% endblock %}
