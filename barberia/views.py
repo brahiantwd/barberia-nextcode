@@ -30,3 +30,4 @@ def iniciar_sesion(request):
         
 
     return render(request, 'barberia/login.html')
+
