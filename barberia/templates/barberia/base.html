@@ -18,7 +18,7 @@
 
         <nav class="nav-menu">
             <a href="{% url 'inicio' %}" class="nav-link active">Inicio</a>
-            <a href="{% url 'servicios' %}" class="nav-link">Servicios</a>
+            <a href="{% url 'administrar_servicios' %}" class="nav-link">Servicios</a>
             <a href="#" class="nav-link">Barberos</a>
             <a href="#" class="nav-link">Reservas</a>
             <a href="#" class="nav-link">Contacto</a>
@@ -27,7 +27,6 @@
         <div class="auth-buttons">
             <a href="{% url 'login' %}" class="btn-outline">Iniciar sesión</a>
             <a href="{% url 'clientes' %}" class="btn-solid">Registrarse</a>
-            <a href="{% url 'administrar_servicios' %}" class="...">Admin</a>
             <a href="/admin/" class="btn-dark">Admin</a>
         </div>
     </header>
