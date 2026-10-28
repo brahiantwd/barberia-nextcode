@@ -15,11 +15,23 @@ class Cliente(models.Model):
     email = models.EmailField(unique=True, blank=True, null=True)
     fecha_registro = models.DateTimeField(auto_now_add=True)
     
-    # Aquí corregimos 'on_delete'
+
     barbero_asignado = models.ForeignKey(Barbero, on_delete=models.SET_NULL, null=True, blank=True, verbose_name="Barbero Habitual")
     historial_cortes = models.TextField(blank=True, null=True, help_text="Notas sobre cortes anteriores, gustos del cliente, etc.")
     proxima_cita = models.DateTimeField(blank=True, null=True, verbose_name="Fecha y Hora de la Próxima Cita")
 
     def __str__(self):
         return f"{self.nombre} {self.apellido}"
+
+from django.db import models
+
+class Servicio(models.Model):
+    PK_idServicio = models.AutoField(primary_key=True)
+    UK_servicios_nombre = models.CharField(max_length=100, unique=True)
+    descripcion = models.TextField()
+    precio = models.DecimalField(max_digits=10, decimal_places=2)
+    duracion = models.IntegerField(help_text="Duración en minutos")
+
+    def __str__(self):
+        return self.UK_servicios_nombre
 
